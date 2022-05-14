@@ -2,7 +2,7 @@
 
 ## bootstrapping a hetzner cloud server
 
-- boot into rescue mode
+- boot into rescue mode using web interface
 
 ```sh
 ssh <host>
