@@ -16,7 +16,7 @@ installimage
 - remove server from known hosts
 
 ```sh
-rsync -a bootstrap.sh <host>:
+rsync -a bin/bootstrap.sh <host>:
 ssh <host>
 ./bootstrap.sh
 ```
