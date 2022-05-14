@@ -20,3 +20,5 @@ rsync -a bin/bootstrap.sh <host>:
 ssh <host>
 ./bootstrap.sh
 ```
+
+- log out and log in again to switch to zsh
