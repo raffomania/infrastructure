@@ -22,4 +22,4 @@ ssh <host>
 ```
 
 - log out and log in again to switch to zsh
-- put wireguard private key into /etc/wireguard/wg0.conf
+- put wireguard private key into ~/<hostname>.key

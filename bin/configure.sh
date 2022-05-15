@@ -14,7 +14,7 @@ sed -i 's/Port .*/Port 7022/' /etc/ssh/sshd_config
 cp $_this_dir/../nftables.conf /etc/nftables.conf
 systemctl enable nftables
 
-if ! test --file /etc/wireguard/wg0.conf {
-    cp $_this_dir/../wg0.conf /etc/wireguard/wg0.conf
-}
+cp $_this_dir/../wg0.conf /etc/wireguard/wg0.conf
+var privkey = $(cat ~/$(hostname).key)
+sed -i "s%PrivateKey =\$%PrivateKey = $privkey%" /etc/wireguard/wg0.conf
 systemctl enable wg-quick@wg0
