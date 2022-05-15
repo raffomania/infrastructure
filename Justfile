@@ -1,2 +1,2 @@
-sync-dev host:
-    watchexec 'rsync -pr -v --delete ./ {{host}}:infrastructure'
+sync-dev:
+    watchexec 'rsync -pr -v --delete ./ lily:infrastructure'
