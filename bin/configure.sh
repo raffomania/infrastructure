@@ -2,7 +2,9 @@
 shopt --set xtrace
 
 # basic usability
-try chsh -s /usr/bin/zsh
+if ($SHELL !== "/usr/bin/zsh") {
+    try chsh -s /usr/bin/zsh
+}
 
 ln -sf $HOME/infrastructure/.zshrc $HOME/.zshrc
 ln -sf $HOME/infrastructure/.zprofile $HOME/.zprofile
