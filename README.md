@@ -16,10 +16,10 @@ installimage
 - remove server from known hosts
 
 ```sh
-rsync -a bin/bootstrap.sh <host>:
-ssh <host>
+pass wg/<host>.key | ssh -p 22 root@lily "cat > <host>.key"
+scp -P 22 bin/bootstrap.sh root@<host>:
+ssh -p 22 root@<host>
 ./bootstrap.sh
 ```
 
-- log out and log in again to switch to zsh
-- put wireguard private key into ~/<hostname>.key
+- log out and log in again using `ssh <host>` to switch to zsh and management user
