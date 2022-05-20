@@ -18,7 +18,7 @@ services:
             # - ADMIN_PASSWORD_FILE=/run/secrets/miniflux_admin_password
         healthcheck:
             test: ["CMD", "/usr/bin/miniflux", "-healthcheck", "auto"]
-        restart: unless-stopped
+        restart: always
     db:
         image: docker.io/library/postgres:14
         environment:
@@ -31,7 +31,7 @@ services:
             test: ["CMD", "pg_isready", "-U", "miniflux"]
             interval: 10s
             start_period: 30s
-        restart: unless-stopped
+        restart: always
 volumes:
     miniflux-db:
 
