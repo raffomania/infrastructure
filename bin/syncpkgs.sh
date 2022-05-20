@@ -7,5 +7,5 @@ shopt --set xtrace
     # network config
     wireguard-tools nftables
     # hosting
-    podman
+    podman podman-compose aardvark-dns
     ;

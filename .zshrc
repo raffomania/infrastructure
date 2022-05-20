@@ -36,7 +36,7 @@ source "/usr/share/fzf/completion.zsh"
 alias v='nvim'
 alias vim='nvim'
 alias svim="sudo nvim"
-alias doco="docker-compose"
+alias poco="podman-compose"
 alias top="htop"
 alias tmn='tmux new -s'
 alias tma='tmux attach -t'
