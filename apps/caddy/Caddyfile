@@ -1,0 +1,7 @@
+feeds.zwielich.tech {
+    log
+
+    @vpn remote_ip 10.10.10.0/24
+
+    reverse_proxy miniflux:8080
+}

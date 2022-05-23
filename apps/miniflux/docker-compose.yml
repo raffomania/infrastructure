@@ -2,8 +2,6 @@ version: "3.4"
 services:
     miniflux:
         image: docker.io/miniflux/miniflux:2.0.36
-        ports:
-            - "8080:8080"
         depends_on:
             - db
         environment:
@@ -16,6 +14,9 @@ services:
             # - DATABASE_URL_FILE=/run/secrets/miniflux_database_url
             # - ADMIN_USERNAME_FILE=/run/secrets/miniflux_admin_username
             # - ADMIN_PASSWORD_FILE=/run/secrets/miniflux_admin_password
+        networks:
+            - caddy_proxy
+            - default
         healthcheck:
             test: ["CMD", "/usr/bin/miniflux", "-healthcheck", "auto"]
         restart: always
@@ -34,16 +35,21 @@ services:
         restart: always
 volumes:
     miniflux-db:
+# secrets:
+#     miniflux_database_url:
+#         external: true
 
-secrets:
-    miniflux_database_url:
-        external: true
+#     miniflux_admin_username:
+#         external: true
 
-    miniflux_admin_username:
-        external: true
+#     miniflux_admin_password:
+#         external: true
 
-    miniflux_admin_password:
-        external: true
+#     postgres_password:
+#         external: true
 
-    postgres_password:
-        external: true
+networks:
+    caddy_proxy:
+        external:
+            name: caddy_default
+    default:

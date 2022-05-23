@@ -27,6 +27,7 @@ sudo systemctl enable --now wg-quick@wg0
 # podman
 sudo touch /etc/subuid /etc/subgid
 sudo usermod --add-subuids 100000-165535 --add-subgids 100000-165535 rafael
+sudo sysctl net.ipv4.ip_unprivileged_port_start=80
 sudo podman system migrate
 
 systemctl enable --user podman-restart.service

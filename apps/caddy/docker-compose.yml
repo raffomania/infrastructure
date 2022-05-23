@@ -1,0 +1,21 @@
+version: "3.7"
+
+services:
+    caddy:
+        image: docker.io/library/caddy:2.5.1
+        restart: always
+        ports:
+            - "80:80"
+            - "443:443"
+        volumes:
+            - $PWD/Caddyfile:/etc/caddy/Caddyfile
+            - caddy_data:/data
+            - caddy_config:/config
+        # environment:
+        # HETZNER_DNS_API_KEY: "${HETZNER_DNS_API_KEY}"
+        # network_mode: "slirp4netns:port_handler=slirp4netns"
+
+volumes:
+    caddy_data:
+        external: true
+    caddy_config:
