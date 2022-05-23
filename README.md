@@ -29,3 +29,4 @@ ssh -p 22 root@<host>
 - backups
 - automatic updates
 - restrict access to vpn
+- disallow root SSH login
