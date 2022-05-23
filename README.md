@@ -23,3 +23,9 @@ ssh -p 22 root@<host>
 ```
 
 - log out and log in again using `ssh <host>` to switch to zsh and management user
+
+## TODO
+
+- backups
+- automatic updates
+- restrict access to vpn
