@@ -1,20 +1,25 @@
 #!/usr/bin/oil
 shopt --set xtrace
 
-# 1. Dump all data from the old database version to a single file
-podman-compose exec db pg_dumpall -U "miniflux" > dump.sql
+# Dump all data from the old database version to a single file
+podman exec miniflux_db_1 pg_dumpall -U "miniflux" > dump.sql
 
-# 2. Stop all containers
+# Stop all containers
 podman-compose stop
 
 # Backup data volume
 podman volume export miniflux_miniflux-db -o db-volume-backup.tar
+
+# remove db container and volume
+podman-compose down db
  
-# 3. Remove the data volume
-podman volume rm miniflux_miniflux-db
+# Start the new container and initialize a blank database instance
+podman-compose up db
 
-# 5. Start the new container and initialize a blank database instance
-podman-compose start db
+# Import the dumped file into the database instance
+podman exec -i miniflux_db_1 sh -c 'psql -U "miniflux" -d "miniflux"' < dump.sql
 
-# 6. Import the dumped file into the database instance
-echo dump.sql > podman-compose exec db psql -U "miniflux" -d "miniflux"
+# re-start the rest
+podman-compose up -d
+
+echo "check if everything works, then remove dump.sql and db-volume-backup.tar"
