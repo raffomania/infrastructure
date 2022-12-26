@@ -19,8 +19,6 @@ services:
             - default
         healthcheck:
             test: ["CMD", "/usr/bin/miniflux", "-healthcheck", "auto"]
-        labels:
-            - "io.containers.autoupdate=registry"
         restart: always
     db:
         image: docker.io/library/postgres:14

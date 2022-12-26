@@ -32,13 +32,13 @@ Errors regarding containers that already exist can be ignored, AFAIK.
 
 ## Updating apps
 
-Usually:
+Update the version in `docker-compose.yml`. Then:
 
 ```sh
 cd infrastructure/apps/<app>
-podman-compose pull
-podman-compose down
-podman-compose up -d
+poco pull
+poco down
+poco up -d
 podman system prune
 ```
 
