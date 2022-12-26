@@ -24,6 +24,24 @@ ssh -p 22 root@<host>
 
 - log out and log in again using `ssh <host>` to switch to zsh and management user
 
+## Running apps
+
+Usually it's just a `podman-compose up -d`.
+
+Errors regarding containers that already exist can be ignored, AFAIK.
+
+## Updating apps
+
+Usually:
+
+```sh
+cd infrastructure/apps/<app>
+podman-compose pull
+podman-compose down
+podman-compose up -d
+podman system prune
+```
+
 ## TODO
 
 - backups
