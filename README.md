@@ -39,12 +39,12 @@ cd infrastructure/apps/<app>
 poco pull
 poco down
 poco up -d
-podman system prune
+podman system prune -a
 ```
 
 ## TODO
 
 - backups
-- automatic updates
+- automatic updates or at least update notifications
 - restrict access to vpn
 - disallow root SSH login
