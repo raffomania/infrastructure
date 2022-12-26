@@ -32,7 +32,7 @@ Errors regarding containers that already exist can be ignored, AFAIK.
 
 ## Updating apps
 
-Update the version in `docker-compose.yml`. Then:
+The renovate bot should update versions in `docker-compose.yml` and open a PR. Some apps might have custom update scripts (like postgres), but usually you can just do this:
 
 ```sh
 cd infrastructure/apps/<app>
