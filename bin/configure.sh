@@ -6,8 +6,10 @@ if ($SHELL !== "/usr/bin/zsh") {
     try chsh -s /usr/bin/zsh
 }
 
+# user config files
 ln -sf $HOME/infrastructure/config/.zshrc $HOME/.zshrc
 ln -sf $HOME/infrastructure/config/.zprofile $HOME/.zprofile
+ln -sf $HOME/infrastructure/config/.gitconfig $HOME/.gitconfig
 
 # ssh
 sudo sed -i 's/#Port/Port/' /etc/ssh/sshd_config
