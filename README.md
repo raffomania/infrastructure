@@ -32,7 +32,7 @@ Errors regarding containers that already exist can be ignored, AFAIK.
 
 ## Updating apps
 
-The renovate bot should update versions in `docker-compose.yml` and open a PR. Some apps might have custom update scripts (like postgres), but usually you can just do this:
+The renovate bot should update versions in `docker-compose.yml` and open a PR. Some apps might have custom update scripts (like postgres), but usually you can just do this after merging:
 
 ```sh
 cd infrastructure/apps/<app>
@@ -45,6 +45,5 @@ podman system prune -a
 ## TODO
 
 - backups
-- automatic updates or at least update notifications
 - restrict access to vpn
 - disallow root SSH login
