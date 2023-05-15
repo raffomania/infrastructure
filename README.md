@@ -43,6 +43,8 @@ podman system prune -a
 
 ## TODO
 
-- backups
+- podman volume backups 
+- automated migration of backups to new server
 - restrict access to vpn
 - disallow root SSH login
+- add tailscale

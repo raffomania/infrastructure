@@ -1,8 +1,8 @@
 feeds.zwielich.tech {
-    log
+	log
 
-    # Run the `@vpn` rule for all requests matching this remote ip
-    @vpn remote_ip 10.10.10.0/24
+	# Run the `@vpn` rule for all requests matching this remote ip
+	@vpn remote_ip 10.10.10.0/24
 
-    reverse_proxy miniflux:8080
+	reverse_proxy miniflux:8080
 }
