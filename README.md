@@ -50,5 +50,4 @@ podman system prune -a
 - podman volume backups 
 - automated migration of backups to new server
 - restrict access to vpn
-- add tailscale
 - use podman secrets for db passwords etc
