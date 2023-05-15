@@ -1,6 +1,9 @@
 #!/usr/bin/oil
 shopt --set xtrace
 
+## Idempotent script to update system config to the desired state.
+# Does not restart services on configuration changes
+
 # basic usability
 if ("$SHELL" !== "/usr/bin/zsh") {
     try chsh -s /usr/bin/zsh
@@ -18,12 +21,6 @@ sudo sed -i 's/Port .*/Port 7022/' /etc/ssh/sshd_config
 # nftables
 sudo cp $_this_dir/../config/nftables.conf /etc/nftables.conf
 sudo systemctl enable --now nftables
-
-# wireguard
-sudo cp $_this_dir/../config/wg0.conf /etc/wireguard/wg0.conf
-var privkey = $(sudo cat /root/$(hostname).key)
-sudo sed -i "s%PrivateKey =\$%PrivateKey = $privkey%" /etc/wireguard/wg0.conf
-sudo systemctl enable --now wg-quick@wg0
 
 # podman
 sudo touch /etc/subuid /etc/subgid

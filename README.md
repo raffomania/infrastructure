@@ -16,7 +16,6 @@ installimage
 - remove server from known hosts
 
 ```sh
-pass wg/<host>.key | ssh -p 22 root@lily "cat > <host>.key"
 scp -P 22 bin/bootstrap.sh root@<host>:
 ssh -p 22 root@<host>
 ./bootstrap.sh

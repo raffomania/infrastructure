@@ -1,6 +1,9 @@
 #!/bin/sh
 set -euxo pipefail
 
+## Initial bootstrap script for a completely fresh installation
+## of arch linux on a hetzner server.
+
 pacman --noconfirm -S --needed oil git sudo
 
 passwd root
