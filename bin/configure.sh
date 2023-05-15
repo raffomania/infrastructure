@@ -18,6 +18,13 @@ ln -sf $HOME/infrastructure/config/.gitconfig $HOME/.gitconfig
 sudo sed -i 's/#*Port .*/Port 7022/' /etc/ssh/sshd_config
 sudo sed -i 's/#*PermitRootLogin.*/PermitRootLogin no/' /etc/ssh/sshd_config
 
+# tailscale
+sudo systemctl enable --now tailscaled
+if sudo test -f /root/tailscale.key {
+    sudo tailscale up --authkey $(sudo cat /root/tailscale.key)
+    sudo rm /root/tailscale.key
+}
+
 # nftables
 sudo cp $_this_dir/../config/nftables.conf /etc/nftables.conf
 sudo systemctl enable --now nftables
