@@ -8,3 +8,13 @@ feeds.zwielich.tech {
 
 	reverse_proxy miniflux:8080
 }
+
+aharc.zwielich.tech {
+	log {
+		format console
+	}
+
+	root * /aharc
+
+	file_server
+}
