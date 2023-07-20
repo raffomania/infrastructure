@@ -1,4 +1,4 @@
-#!/usr/bin/oil
+#!/usr/bin/ysh
 shopt --set xtrace
 
 ... sudo pacman --needed -S 

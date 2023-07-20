@@ -1,4 +1,4 @@
-#!/usr/bin/oil
+#!/usr/bin/ysh
 shopt --set xtrace
 
 ## Idempotent script to update system config to the desired state.
@@ -13,6 +13,7 @@ if ("$SHELL" !== "/usr/bin/zsh") {
 ln -sf $HOME/infrastructure/config/.zshrc $HOME/.zshrc
 ln -sf $HOME/infrastructure/config/.zprofile $HOME/.zprofile
 ln -sf $HOME/infrastructure/config/.gitconfig $HOME/.gitconfig
+ln -sf $HOME/infrastructure/config/.ssh/authorized_keys $HOME/.ssh/authorized_keys
 
 # ssh
 sudo sed -i 's/#*Port .*/Port 7022/' /etc/ssh/sshd_config
