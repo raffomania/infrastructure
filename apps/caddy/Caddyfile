@@ -1,3 +1,9 @@
+{
+	log default {
+		format console
+	}
+}
+
 feeds.zwielich.tech {
 	log {
 		format console
