@@ -11,7 +11,7 @@ services:
             - $PWD/Caddyfile:/etc/caddy/Caddyfile
             - caddy_caddy_data:/data
             - caddy_config:/config
-            - $HOME/data/aharc:/aharc
+            - $HOME/data/archive.observer:/aharc
         # environment:
         # HETZNER_DNS_API_KEY: "${HETZNER_DNS_API_KEY}"
         # network_mode: "slirp4netns:port_handler=slirp4netns"
