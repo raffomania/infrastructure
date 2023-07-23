@@ -8,4 +8,6 @@ shopt --set xtrace
     tailscale nftables
     # hosting
     podman podman-compose aardvark-dns
+    # utility
+    goaccess
     ;
