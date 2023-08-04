@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
     caddy:
-        image: docker.io/library/caddy:2.6.4
+        image: docker.io/library/caddy:2.7.2
         restart: always
         ports:
             - "80:80"
