@@ -15,17 +15,13 @@ installimage
 - `reboot`
 - remove server from known hosts
 
-Prepare a pre-approved, one-time tailscale auth key at https://login.tailscale.com/admin/settings/keys and save it to `tailscale.key` in the current folder.
-
 ```sh
-scp -P 22 tailscale.key root@<host>:
 scp -P 22 bin/bootstrap.sh root@<host>:
 ssh -p 22 root@<host>
 ./bootstrap.sh
 ```
 
 - log out and log in again using `ssh <host>` to switch to zsh and management user
-- `rm tailscale.key` on the local machine
 
 ## Running apps
 

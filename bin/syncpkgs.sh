@@ -5,7 +5,7 @@ shopt --set xtrace
     # base & dev stuff
     base-devel oil git zsh zoxide fzf starship exa neovim man-db
     # network config
-    tailscale nftables
+    nftables
     # hosting
     podman podman-compose aardvark-dns
     # utility
