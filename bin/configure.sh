@@ -32,3 +32,5 @@ sudo podman system migrate
 
 systemctl enable --user podman-restart.service
 sudo loginctl enable-linger rafael
+
+mkdir -p ~/.config/containers/systemd

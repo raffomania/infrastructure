@@ -113,9 +113,10 @@ alias pqs="pueue status"
 # Systemd clusterfuck
 alias sc="sudo systemctl"
 alias scu="systemctl --user"
+alias jc="sudo journalctl"
+alias jcu="journalctl --user"
 alias sus="systemctl suspend"
 alias hib="systemctl hibernate"
-alias jc="sudo journalctl"
 
 # fzf
 # fuzzy multi-select modified file

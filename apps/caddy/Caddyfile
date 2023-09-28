@@ -11,6 +11,10 @@ feeds.zwielich.tech {
 	reverse_proxy miniflux:8080
 }
 
+pad.zwielich.tech {
+	reverse_proxy hedgedoc:3000
+}
+
 archive.observer {
 	log {
 		format json
