@@ -27,7 +27,7 @@ Environment=CMD_PROTOCOL_USESSL=true
 
 Environment=CMD_ALLOW_FREEURL=true
 Environment=CMD_REQUIRE_FREEURL_AUTHENTICATION=true
-Environment=CMD_ALLOW_EMAIL_REGISTER=false
+Environment=CMD_ALLOW_EMAIL_REGISTER=true
 Environment=CMD_ALLOW_ANONYMOUS=false
 Environment=CMD_ALLOW_ANONYMOUS_EDITS=true
 Environment=CMD_CSP_ALLOW_FRAMING=false
