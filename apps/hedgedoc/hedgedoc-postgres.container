@@ -4,9 +4,11 @@ Description=HedgeDoc
 [Container]
 ContainerName=hedgedoc-postgres
 Image=docker.io/postgres:15.3-alpine
+
 Volume=hedgedoc-db.volume:/var/lib/postgresql/data
+
 Network=hedgedoc.network
-ContainerName=hedgedoc-postgres
+
 Environment=POSTGRES_USER=hedgedoc
 Environment=POSTGRES_DB=hedgedoc
 Environment=POSTGRES_PASSWORD=hedgedoc

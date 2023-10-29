@@ -1,0 +1,16 @@
+[Unit]
+Description=Vikunja Frontend
+
+[Container]
+ContainerName=vikunja-frontend
+Image=docker.io/vikunja/frontend:0.21.0
+
+Network=caddy_default
+
+[Service]
+# Extend Timeout to allow time to pull the image
+TimeoutStartSec=900
+Restart=always
+
+[Install]
+WantedBy=default.target

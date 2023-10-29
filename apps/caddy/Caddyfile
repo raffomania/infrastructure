@@ -15,6 +15,13 @@ pad.zwielich.tech {
 	reverse_proxy hedgedoc:3000
 }
 
+tasks.zwielich.tech {
+    reverse_proxy /api/* vikunja-api:3456
+    reverse_proxy /.well-known/* vikunja-api:3456
+    reverse_proxy /dav/* vikunja-api:3456
+    reverse_proxy vikunja-frontend:80
+}
+
 archive.observer {
 	log {
 		format json
