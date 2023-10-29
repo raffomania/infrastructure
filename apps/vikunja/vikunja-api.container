@@ -3,7 +3,7 @@ Description=Vikunja API
 
 [Container]
 ContainerName=vikunja-api
-Image=docker.io/vikunja/api:0.20.0
+Image=docker.io/vikunja/api:0.21.0
 
 Network=caddy_default
 
