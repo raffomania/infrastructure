@@ -3,7 +3,7 @@ Description=HedgeDoc
 
 [Container]
 ContainerName=hedgedoc-postgres
-Image=docker.io/postgres:15.3-alpine
+Image=docker.io/postgres:15.4-alpine
 
 Volume=hedgedoc-db.volume:/var/lib/postgresql/data
 
