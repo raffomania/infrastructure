@@ -7,7 +7,7 @@
         {
             "customType": "regex",
             "fileMatch": ["\\.container$"],
-            "matchStrings": ["^Image=(?<depName>.*?):(?<currentValue>.*?)$"],
+            "matchStrings": ["Image=(?<depName>.*?):(?<currentValue>.*?)"],
             "versioningTemplate": "docker",
             "datasourceTemplate": "docker"
         }
