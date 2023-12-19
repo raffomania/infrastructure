@@ -3,7 +3,7 @@ Description=Vikunja Frontend
 
 [Container]
 ContainerName=vikunja-frontend
-Image=docker.io/vikunja/frontend:0.21.0
+Image=docker.io/vikunja/frontend:0.22.0
 
 Network=caddy_default
 
