@@ -1,5 +1,8 @@
 #!/bin/sh
 
+echo "The vikunja setup is currently archived. Before continuing, please update to the newest version, remove existing volumes and containers if applicable, and then remove this line from the install script."
+exit
+
 set -euxo pipefail
 
 podman secret exists vikunja-jwt-secret || \
