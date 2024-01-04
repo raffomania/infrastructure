@@ -1,8 +1,6 @@
 {
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "extends": [
-        "config:base"
-    ],
+    "extends": ["config:base"],
     "customManagers": [
         {
             "customType": "regex",
@@ -11,5 +9,6 @@
             "versioningTemplate": "docker",
             "datasourceTemplate": "docker"
         }
-    ]
+    ],
+    "ignoreDeps": ["docker.io/vikunja/frontend", "docker.io/vikunja/api"]
 }
