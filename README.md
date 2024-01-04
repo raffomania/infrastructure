@@ -41,6 +41,15 @@ poco up -d
 podman system prune -a
 ```
 
+For quadlet-based setups, you can usually do 
+
+```sh
+systemctl --user daemon-reload
+systemctl --user restart <container>
+```
+
+To prevent downtime while podman is pulling the image, manually issue a `podman pull <container>:<tag>` command before issuing the restart.
+
 ## TODO
 
 - podman volume backups 
