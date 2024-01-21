@@ -1,0 +1,17 @@
+version: "3.7"
+
+services:
+    spc_signup:
+        image: docker.io/oven/bun:1
+        restart: always
+        volumes:
+            - $HOME/spc-signup:/spc-signup
+        working_dir: /spc-signup
+        command: bun run index.ts
+        networks:
+            - caddy_proxy
+
+networks:
+    caddy_proxy:
+        external:
+            name: caddy_default

@@ -22,6 +22,10 @@ tasks.zwielich.tech {
     reverse_proxy vikunja-frontend:80
 }
 
+spc-signup.zwielich.tech {
+	reverse_proxy spc_signup:3000
+}
+
 archive.observer {
 	log {
 		format json
