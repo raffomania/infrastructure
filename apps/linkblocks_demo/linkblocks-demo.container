@@ -1,0 +1,24 @@
+[Unit]
+Description=Linkblocks Demo
+Requires=linkblocks-postgres.service
+After=linkblocks-postgres.service
+
+[Container]
+ContainerName=linkblocks-demo
+Image=ghcr.io/raffomania/linkblocks:latest
+
+Network=linkblocks.network
+Network=caddy_default
+
+Environment=DATABASE_NAME=linkblocks
+Environment=DATABASE_URL=postgres://linkblocks:linkblocks@linkblocks-postgres:5432/linkblocks
+Environment=BASE_URL=https://linkblocks.zwielich.tech
+Environment=RUST_LOG=linkblocks=debug,tower_http=debug,tower_http::trace::on_request=info,axum::rejection=trace,sqlx=debug
+
+[Service]
+# Extend Timeout to allow time to pull the image
+TimeoutStartSec=900
+Restart=always
+
+[Install]
+WantedBy=default.target
