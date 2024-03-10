@@ -1,7 +1,7 @@
 version: "3.4"
 services:
     miniflux:
-        image: docker.io/miniflux/miniflux:2.1.0
+        image: docker.io/miniflux/miniflux:2.1.1
         depends_on:
             - db
         environment:
