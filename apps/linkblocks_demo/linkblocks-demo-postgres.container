@@ -1,13 +1,13 @@
 [Unit]
-Description=Linkblocks Postgres
+Description=Linkblocks Demo Postgres
 
 [Container]
-ContainerName=linkblocks-postgres
+ContainerName=linkblocks-demo-postgres
 Image=docker.io/postgres:16.1-alpine
 
-Volume=linkblocks-postgres.volume:/var/lib/postgresql/data
+Volume=linkblocks-demo-postgres.volume:/var/lib/postgresql/data
 
-Network=linkblocks.network
+Network=linkblocks-demo.network
 
 Environment=POSTGRES_USER=linkblocks
 Environment=POSTGRES_DB=linkblocks

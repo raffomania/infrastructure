@@ -26,6 +26,10 @@ spc-signup.zwielich.tech {
 	reverse_proxy spc_signup:3000
 }
 
+linkblocks.zwielich.tech {
+	reverse_proxy linkblocks-demo:3000
+}
+
 archive.observer {
 	log {
 		format json
