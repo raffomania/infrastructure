@@ -34,3 +34,5 @@ systemctl enable --user podman-restart.service
 sudo loginctl enable-linger rafael
 
 mkdir -p ~/.config/containers/systemd
+# Not really necessary, but prevents errors when running check-quadlet.sh
+sudo mkdir -p /etc/containers/systemd/users/1000
