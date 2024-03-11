@@ -30,6 +30,10 @@ linkblocks.zwielich.tech {
 	reverse_proxy linkblocks-demo:3000
 }
 
+lb.zwielich.tech {
+	reverse_proxy linkblocks:3000
+}
+
 archive.observer {
 	log {
 		format json
