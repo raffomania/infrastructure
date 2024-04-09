@@ -29,6 +29,9 @@ sudo usermod --add-subuids 100000-165535 --add-subgids 100000-165535 rafael
 sudo sysctl net.ipv4.ip_unprivileged_port_start=80
 echo "net.ipv4.ip_unprivileged_port_start=80" | sudo tee /etc/sysctl.d/01-ports.conf
 sudo podman system migrate
+# For docker-compose
+sudo sed -i 's/#*compose_warning_logs.*/compose_warning_logs = false/' /etc/containers/containers.conf
+systemctl --user enable podman.socket
 
 systemctl enable --user podman-restart.service
 sudo loginctl enable-linger rafael

@@ -7,7 +7,7 @@ shopt --set xtrace
     # network config
     nftables
     # hosting
-    podman podman-compose aardvark-dns 
+    podman netavark podman-docker docker-compose aardvark-dns 
     # generating secrets
     pwgen
     # utility
