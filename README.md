@@ -50,6 +50,17 @@ systemctl --user restart <container>
 
 To prevent downtime while podman is pulling the image, manually issue a `podman pull <container>:<tag>` command before issuing the restart.
 
+## Freeing disk space
+
+```
+podman system prune -a
+# Remove all cached packages except the
+# two most recently installed version
+sudo paccache -rk2
+# Remove all cached packages that were uninstalled
+sudo paccache -ruk0
+```
+
 ## TODO
 
 - podman volume backups 

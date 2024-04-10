@@ -11,5 +11,5 @@ shopt --set xtrace
     # generating secrets
     pwgen
     # utility
-    goaccess
+    goaccess pacman-contrib
     ;
