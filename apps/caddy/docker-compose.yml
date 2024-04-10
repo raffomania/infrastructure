@@ -1,5 +1,3 @@
-version: "3.7"
-
 services:
     caddy:
         image: docker.io/library/caddy:2.7.6
@@ -13,6 +11,8 @@ services:
             - caddy_config:/config
             - $HOME/data/archive.observer:/aharc
             - $HOME/logs/caddy:/logs
+        networks:
+            - caddy_default
         # environment:
         # HETZNER_DNS_API_KEY: "${HETZNER_DNS_API_KEY}"
         # network_mode: "slirp4netns:port_handler=slirp4netns"
@@ -21,3 +21,8 @@ volumes:
     caddy_caddy_data:
         external: true
     caddy_config:
+
+networks:
+    caddy_default:
+        external: true
+        name: caddy_default
