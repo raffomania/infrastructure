@@ -1,0 +1,18 @@
+services:
+    actual:
+        image: docker.io/actualbudget/actual-server:24.4.0-alpine
+        networks:
+            - caddy_proxy
+        environment:
+            - ACTUAL_PORT=3000
+        volumes:
+            - actual-data:/data
+        restart: unless-stopped
+
+volumes:
+    actual-data:
+
+networks:
+    caddy_proxy:
+        external: true
+        name: caddy_default

@@ -15,13 +15,6 @@ pad.zwielich.tech {
 	reverse_proxy hedgedoc:3000
 }
 
-tasks.zwielich.tech {
-    reverse_proxy /api/* vikunja-api:3456
-    reverse_proxy /.well-known/* vikunja-api:3456
-    reverse_proxy /dav/* vikunja-api:3456
-    reverse_proxy vikunja-frontend:80
-}
-
 spc-signup.zwielich.tech {
 	reverse_proxy spc_signup:3000
 }
@@ -32,6 +25,11 @@ linkblocks.zwielich.tech {
 
 lb.zwielich.tech {
 	reverse_proxy linkblocks:3000
+}
+
+actual.zwielich.tech {
+    encode gzip zstd
+    reverse_proxy actual:3000
 }
 
 archive.observer {
