@@ -7,7 +7,7 @@ services:
             - ACTUAL_PORT=3000
         volumes:
             - actual-data:/data
-        restart: unless-stopped
+        restart: always
 
 volumes:
     actual-data:
