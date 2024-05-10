@@ -8,7 +8,6 @@ podman exec miniflux_db_1 pg_dumpall -U "miniflux" > dump.sql
 podman-compose stop
 
 # Backup data volume
-mkdir -p ~/backups
 podman volume export miniflux_miniflux-db -o ~/backups/miniflux-db-volume-backup.tar
 
 # remove all containers and volume

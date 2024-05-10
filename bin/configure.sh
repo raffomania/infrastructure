@@ -15,6 +15,8 @@ ln -sf $HOME/infrastructure/config/.zprofile $HOME/.zprofile
 ln -sf $HOME/infrastructure/config/.gitconfig $HOME/.gitconfig
 ln -sf $HOME/infrastructure/config/.ssh/authorized_keys $HOME/.ssh/authorized_keys
 
+mkdir -p ~/backups
+
 # ssh
 sudo sed -i 's/#*Port .*/Port 7022/' /etc/ssh/sshd_config
 sudo sed -i 's/#*PermitRootLogin.*/PermitRootLogin no/' /etc/ssh/sshd_config

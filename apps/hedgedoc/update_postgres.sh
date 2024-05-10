@@ -10,7 +10,6 @@ podman exec hedgedoc-postgres pg_dumpall -U "hedgedoc" > dump.sql
 systemctl --user stop hedgedoc-postgres
 
 # Backup data volume
-mkdir -p ~/backups
 podman volume export systemd-hedgedoc-db -o ~/backups/hedgedoc-db-volume-backup.tar
 
 # remove db volume
