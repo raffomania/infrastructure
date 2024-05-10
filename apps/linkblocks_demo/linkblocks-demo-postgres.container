@@ -3,7 +3,7 @@ Description=Linkblocks Demo Postgres
 
 [Container]
 ContainerName=linkblocks-demo-postgres
-Image=docker.io/postgres:16.2-alpine
+Image=docker.io/postgres:16.3-alpine
 
 Volume=linkblocks-demo-postgres.volume:/var/lib/postgresql/data
 
