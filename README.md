@@ -48,6 +48,8 @@ systemctl --user daemon-reload
 systemctl --user restart <container>
 ```
 
+Remember to restart the specific container that was updated. For a postgres update, you might restart e.g. `<container>-postgres`.
+
 To prevent downtime while podman is pulling the image, manually issue a `podman pull <container>:<tag>` command before issuing the restart.
 
 ## Freeing disk space
