@@ -6,11 +6,11 @@ services:
         environment:
             - ACTUAL_PORT=3000
         volumes:
-            - actual-data:/data
+            - data:/data
         restart: always
 
 volumes:
-    actual-data:
+    data:
 
 networks:
     caddy_proxy:
