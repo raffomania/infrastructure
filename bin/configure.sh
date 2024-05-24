@@ -25,6 +25,9 @@ sudo sed -i 's/#*PermitRootLogin.*/PermitRootLogin no/' /etc/ssh/sshd_config
 sudo cp $_this_dir/../config/nftables.conf /etc/nftables.conf
 sudo systemctl enable --now nftables
 
+# pacman
+sudo sed -i 's/#VerbosePkgLists.*/VerbosePkgLists/' /etc/pacman.conf
+
 # podman
 sudo touch /etc/subuid /etc/subgid
 sudo usermod --add-subuids 100000-165535 --add-subgids 100000-165535 rafael
