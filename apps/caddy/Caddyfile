@@ -28,8 +28,8 @@ lb.zwielich.tech {
 }
 
 actual.zwielich.tech {
-    encode gzip zstd
-    reverse_proxy actual:3000
+	encode gzip zstd
+	reverse_proxy actual:3000
 }
 
 archive.observer {
