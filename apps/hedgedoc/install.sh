@@ -1,5 +1,4 @@
 #!/bin/sh
-
 set -euxo pipefail
 
 podman secret exists hedgedoc-session-secret || \

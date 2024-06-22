@@ -13,6 +13,10 @@ services:
             - $HOME/logs/caddy:/logs
         networks:
             - caddy_default
+        secrets:
+            - guest-password-hash
+        environment:
+            GUEST_PASSWORD_HASH_FILE: /run/secrets/guest-password-hash
         # environment:
         # HETZNER_DNS_API_KEY: "${HETZNER_DNS_API_KEY}"
         # network_mode: "slirp4netns:port_handler=slirp4netns"
@@ -26,3 +30,7 @@ networks:
     caddy_default:
         external: true
         name: caddy_default
+
+secrets:
+    guest-password-hash:
+        file: ./guest-password-hash-secret
