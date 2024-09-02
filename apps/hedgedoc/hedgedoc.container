@@ -5,7 +5,7 @@ After=hedgedoc-postgres.service
 
 [Container]
 ContainerName=hedgedoc
-Image=quay.io/hedgedoc/hedgedoc:1.9.9
+Image=quay.io/hedgedoc/hedgedoc:1.10.0
 
 Volume=hedgedoc-uploads.volume:/hedgedoc/public/uploads
 
