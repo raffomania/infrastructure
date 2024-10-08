@@ -1,6 +1,6 @@
 services:
     actual:
-        image: docker.io/actualbudget/actual-server:24.9.0-alpine
+        image: docker.io/actualbudget/actual-server:24.10.1-alpine
         networks:
             - caddy_proxy
         environment:
