@@ -1,0 +1,62 @@
+services:
+    hedgedoc:
+        image: quay.io/hedgedoc/hedgedoc:1.10.0
+        networks:
+            - caddy_proxy
+            - default
+        depends_on:
+            db:
+                condition: service_healthy
+        secrets:
+            - source: session-secret
+              target: sessionsecret
+        environment:
+            - CMD_DB_DIALECT=postgres
+            - CMD_DB_HOST=db
+            - CMD_DB_USERNAME=hedgedoc
+            - CMD_DB_PORT=5432
+            - CMD_DB_DATABASE=hedgedoc
+            - CMD_DB_PASSWORD=hedgedoc
+            #
+            - CMD_DOMAIN=pad.zwielich.tech
+            - CMD_PROTOCOL_USESSL=true
+            #
+            - CMD_ALLOW_FREEURL=true
+            - CMD_REQUIRE_FREEURL_AUTHENTICATION=true
+            - CMD_ALLOW_EMAIL_REGISTER=true
+            - CMD_ALLOW_ANONYMOUS=false
+            - CMD_ALLOW_ANONYMOUS_EDITS=true
+            - CMD_CSP_ALLOW_FRAMING=false
+            - CMD_CSP_ALLOW_PDF_EMBED=false
+    db:
+        image: docker.io/library/postgres:16.3-alpine
+        environment:
+            - POSTGRES_DB=hedgedoc
+            - POSTGRES_USER=hedgedoc
+            - POSTGRES_PASSWORD=hedgedoc
+        volumes:
+            - db:/var/lib/postgresql/data
+        healthcheck:
+            test: ["CMD", "pg_isready", "-U", "hedgedoc"]
+            interval: 60s
+            start_period: 30s
+        restart: always
+
+volumes:
+    db:
+        # Name is from quadlet times
+        name: systemd-hedgedoc-db
+        external: true
+    uploads:
+        name: systemd-hedgedoc-uploads
+        external: true
+
+secrets:
+    session-secret:
+        file: ./session-secret
+
+networks:
+    caddy_proxy:
+        external: true
+        name: caddy_default
+    default:
