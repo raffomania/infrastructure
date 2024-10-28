@@ -22,7 +22,6 @@ sudo sed -i 's/#*Port .*/Port 7022/' /etc/ssh/sshd_config
 sudo sed -i 's/#*PermitRootLogin.*/PermitRootLogin no/' /etc/ssh/sshd_config
 sudo sed -i 's/#*PasswordAuthentication.*/PasswordAuthentication no/' /etc/ssh/sshd_config
 sudo sed -i 's/#*KbdInteractiveAuthentication.*/KbdInteractiveAuthentication no/' /etc/ssh/sshd_config
-sudo sed -i 's/#*UsePAM.*/UsePAM no/' /etc/ssh/sshd_config
 
 # nftables
 sudo cp $_this_dir/../config/nftables.conf /etc/nftables.conf
