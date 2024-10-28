@@ -2,7 +2,6 @@
 
 set -euxo pipefail
 
-podman pull ghcr.io/raffomania/linkblocks:latest
+podman compose pull
 
-systemctl --user daemon-reload
-systemctl --user restart linkblocks
+podman compose down && podman compose up -d

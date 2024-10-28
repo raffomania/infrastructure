@@ -1,0 +1,39 @@
+services:
+    linkblocks:
+        image: ghcr.io/raffomania/linkblocks:latest
+        networks:
+            - caddy_proxy
+            - default
+        depends_on:
+            db:
+                condition: service_healthy
+        environment:
+            - LISTEN=0.0.0.0:3000
+            - DATABASE_NAME=linkblocks
+            - DATABASE_URL=postgres://linkblocks:linkblocks@db/linkblocks
+            - BASE_URL=https://lb.zwielich.tech
+            - RUST_LOG=linkblocks=debug,tower_http=debug,tower_http::trace::on_request=info,axum::rejection=trace,sqlx=debug
+    db:
+        image: docker.io/library/postgres:16.3-alpine
+        environment:
+            - POSTGRES_DB=linkblocks
+            - POSTGRES_USER=linkblocks
+            - POSTGRES_PASSWORD=linkblocks
+        volumes:
+            - db:/var/lib/postgresql/data
+        healthcheck:
+            test: ["CMD", "pg_isready", "-U", "linkblocks"]
+            interval: 60s
+            start_period: 30s
+        restart: always
+volumes:
+    db:
+        # Name is from quadlet times
+        name: systemd-linkblocks-postgres
+        external: true
+
+networks:
+    caddy_proxy:
+        external: true
+        name: caddy_default
+    default:
