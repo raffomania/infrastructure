@@ -74,3 +74,9 @@ sudo paccache -ruk0
 - automated migration of backups to new server
 - restrict access to vpn
 - use podman secrets for db passwords etc
+
+## Archived Apps
+
+These are available in git history:
+
+- vikunja
