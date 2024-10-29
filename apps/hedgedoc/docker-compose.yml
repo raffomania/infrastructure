@@ -46,10 +46,8 @@ volumes:
     db:
         # Name is from quadlet times
         name: systemd-hedgedoc-db
-        external: true
     uploads:
         name: systemd-hedgedoc-uploads
-        external: true
 
 secrets:
     session-secret:

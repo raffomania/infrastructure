@@ -30,7 +30,6 @@ volumes:
     db:
         # Name is from quadlet times
         name: systemd-linkblocks-postgres
-        external: true
 
 networks:
     caddy_proxy:
