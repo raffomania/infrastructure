@@ -1,0 +1,50 @@
+services:
+    outline:
+        image: docker.io/outlinewiki/outline:0.80.3-0
+        env_file:
+            - ./docker.env
+            - secret-key.env
+            - utils-secret.env
+            - manual-secrets.env
+        environment:
+            DATABASE_URL: postgres://outline:outline@db:5432/outline
+            REDIS_URL: redis://redis:6379
+        volumes:
+            - storage-data:/var/lib/outline/data
+        depends_on:
+            - postgres
+            - redis
+        networks:
+            - default
+            - caddy_proxy
+
+    redis:
+        image: redis:7-alpine
+        env_file: ./docker.env
+        command: ["redis-server", "/redis.conf"]
+        healthcheck:
+            test: ["CMD", "redis-cli", "ping"]
+            interval: 60s
+            start_period: 30s
+
+    db:
+        image: docker.io/library/postgres:17-alpine
+        volumes:
+            - database-data:/var/lib/postgresql/data
+        environment:
+            POSTGRES_USER: "outline"
+            POSTGRES_PASSWORD: "outline"
+            POSTGRES_DB: "outline"
+        healthcheck:
+            test: ["CMD", "pg_isready", "-d", "outline", "-U", "outline"]
+            interval: 60s
+            start_period: 30s
+
+volumes:
+    storage-data:
+    database-data:
+
+networks:
+    caddy_proxy:
+        external: true
+        name: caddy_default
