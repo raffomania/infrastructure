@@ -1,6 +1,6 @@
 services:
     miniflux:
-        image: docker.io/miniflux/miniflux:2.2.2
+        image: docker.io/miniflux/miniflux:2.2.3
         depends_on:
             - db
         environment:
