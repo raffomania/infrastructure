@@ -1,6 +1,16 @@
 #!/usr/bin/sh
 set -euxo pipefail
 
+# This script should run in the directory containing the docker-compose.yml file with the database to update.
+
+# Inputs, as environment variables:
+# db_container
+# db_username
+# db_volume
+
+# Pull any new containers beforehand
+podman compose pull
+
 # Dump all data from the old database version to a single file
 podman exec "$db_container" pg_dumpall -U "$db_username" > dump.sql
 
