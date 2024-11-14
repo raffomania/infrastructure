@@ -5,7 +5,7 @@ set -euxo pipefail
 podman compose stop
 
 # Backup data volume
-podman volume export actual_actual-data -o ~/backups/$(date +%F)-actual-data-backup.tar
+podman volume export actual_data -o ~/backups/$(date +%F)-actual-data-backup.tar
 
 # Start up again
 podman compose up -d
