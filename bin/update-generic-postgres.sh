@@ -11,13 +11,20 @@ set -euxo pipefail
 # Pull any new containers beforehand
 podman compose pull
 
+# Stop all containers
+podman compose stop
+
+# Then start db container
+podman start "$db_container"
+podman wait --condition=healthy "$db_container"
+
 # Dump all data from the old database version to a single file
 podman exec "$db_container" pg_dumpall -U "$db_username" > dump.sql
 
 [[ ! -s dump.sql ]] && echo "dump.sql is empty" && exit 1
 
-# Stop all containers
-podman compose stop
+# Stop db container before backing up the volume
+podman stop "$db_container"
 
 # Backup data volume
 volume_backup_file="$HOME/backups/$db_volume-volume-backup.tar"
@@ -26,7 +33,7 @@ podman volume export "$db_volume" -o $volume_backup_file
 [[ ! -s $volume_backup_file ]] && echo "$volume_backup_file is empty" && exit 1
 
 # remove db container & volume
-podman compose down db
+podman container rm "$db_container"
 podman volume rm "$db_volume"
  
 # Start the new container and initialize a blank database instance
