@@ -35,17 +35,7 @@ The renovate bot should update versions in `docker-compose.yml` and open a PR. S
 
 ```sh
 cd infrastructure/apps/<app>
-poco pull
-poco down
-poco up -d
-podman system prune -a
-```
-
-For quadlet-based setups, you can usually do 
-
-```sh
-systemctl --user daemon-reload
-systemctl --user restart <container>
+poco-pull-recreate.sh
 ```
 
 For linkblocks and other containers using the latest tag, do
