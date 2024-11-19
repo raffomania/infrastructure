@@ -14,7 +14,7 @@ services:
             - BASE_URL=https://lb.zwielich.tech
             - RUST_LOG=linkblocks=debug,tower_http=debug,tower_http::trace::on_request=info,axum::rejection=trace,sqlx=debug
     db:
-        image: docker.io/library/postgres:16.3-alpine
+        image: docker.io/library/postgres:17.0-alpine
         environment:
             - POSTGRES_DB=linkblocks
             - POSTGRES_USER=linkblocks
