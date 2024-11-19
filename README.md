@@ -25,9 +25,7 @@ ssh -p 22 root@<host>
 
 ## Running apps
 
-Usually it's just a `podman-compose up -d`.
-
-Errors regarding containers that already exist can be ignored, AFAIK.
+Usually it's just a `podman-compose up -d`. Sometimes, there's an `install.sh` script.
 
 ## Updating apps
 
