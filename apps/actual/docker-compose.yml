@@ -9,6 +9,12 @@ services:
             - data:/data
         restart: always
 
+        deploy:
+            resources:
+                limits:
+                    cpus: "0.1"
+                    memory: 100MB
+
 volumes:
     data:
 

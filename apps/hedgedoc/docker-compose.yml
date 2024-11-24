@@ -28,6 +28,12 @@ services:
             - CMD_ALLOW_ANONYMOUS_EDITS=true
             - CMD_CSP_ALLOW_FRAMING=false
             - CMD_CSP_ALLOW_PDF_EMBED=false
+
+        deploy:
+            resources:
+                limits:
+                    cpus: "0.2"
+                    memory: 100MB
     db:
         image: docker.io/library/postgres:17.2-alpine
         environment:
@@ -41,6 +47,12 @@ services:
             interval: 60s
             start_period: 30s
         restart: always
+
+        deploy:
+            resources:
+                limits:
+                    cpus: "0.1"
+                    memory: 50MB
 
 volumes:
     db:

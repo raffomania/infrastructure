@@ -12,6 +12,12 @@ services:
             context: $HOME/spc-signup
             dockerfile: Containerfile
 
+        deploy:
+            resources:
+                limits:
+                    cpus: "0.05"
+                    memory: 100MB
+
 networks:
     caddy_proxy:
         external: true

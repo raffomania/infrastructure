@@ -68,3 +68,4 @@ sudo paccache -ruk0
 These are available in git history:
 
 - vikunja
+- metube
