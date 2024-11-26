@@ -15,8 +15,10 @@ services:
             - caddy_default
         secrets:
             - guest-password-hash
+            - private-password-hash
         environment:
             GUEST_PASSWORD_HASH_FILE: /run/secrets/guest-password-hash
+            PRIVATE_PASSWORD_HASH_FILE: /run/secrets/private-password-hash
         # environment:
         # HETZNER_DNS_API_KEY: "${HETZNER_DNS_API_KEY}"
         # network_mode: "slirp4netns:port_handler=slirp4netns"
@@ -40,3 +42,5 @@ networks:
 secrets:
     guest-password-hash:
         file: ./guest-password-hash-secret
+    private-password-hash:
+        file: ./private-password-hash-secret

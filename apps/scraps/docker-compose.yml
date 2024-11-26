@@ -1,0 +1,21 @@
+services:
+    scraps:
+        image: docker.io/raffomania/scraps:latest
+        networks:
+            - caddy_proxy
+        environment:
+            PHX_HOST: "scraps.zwielich.tech"
+            PORT: "3000"
+        env_file:
+            - secret-key.env
+        volumes:
+            - data:/data
+        restart: always
+
+volumes:
+    data:
+
+networks:
+    caddy_proxy:
+        external: true
+        name: caddy_default

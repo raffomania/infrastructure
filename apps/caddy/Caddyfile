@@ -43,6 +43,13 @@ archive.observer {
 	file_server
 }
 
+scraps.zwielich.tech {
+	basic_auth {
+		boi {file.{$PRIVATE_PASSWORD_HASH_FILE}}
+	}
+	reverse_proxy scraps:3000
+}
+
 metube.zwielich.tech {
 	basic_auth {
 		guest {file.{$GUEST_PASSWORD_HASH_FILE}}
