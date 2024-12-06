@@ -31,8 +31,10 @@ sudo systemctl enable --now nftables
 sudo sed -i 's/#VerbosePkgLists.*/VerbosePkgLists/' /etc/pacman.conf
 
 # podman
+# todo: I think these settings are now the default
 sudo touch /etc/subuid /etc/subgid
 sudo usermod --add-subuids 100000-165535 --add-subgids 100000-165535 rafael
+
 sudo sysctl net.ipv4.ip_unprivileged_port_start=80
 echo "net.ipv4.ip_unprivileged_port_start=80" | sudo tee /etc/sysctl.d/01-ports.conf
 sudo podman system migrate
