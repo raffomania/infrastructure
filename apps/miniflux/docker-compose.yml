@@ -33,6 +33,12 @@ services:
             # - POSTGRES_PASSWORD_FILE=/run/secrets/postgres_password
         volumes:
             - miniflux-db:/var/lib/postgresql/data
+        command: |
+            -c shared_buffers=16MB 
+            -c work_mem=1MB 
+            -c max_connections=10 
+            -c maintenance_work_mem=4MB 
+            -c effective_cache_size=32MB
         healthcheck:
             test: ["CMD", "pg_isready", "-U", "miniflux"]
             interval: 60s
@@ -43,7 +49,7 @@ services:
             resources:
                 limits:
                     cpus: "0.1"
-                    memory: 50MB
+                    memory: 64MB
 volumes:
     miniflux-db:
 # secrets:

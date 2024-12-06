@@ -18,7 +18,7 @@ services:
             resources:
                 limits:
                     cpus: "0.1"
-                    memory: 20MB
+                    memory: 64MB
     db:
         image: docker.io/library/postgres:17.2-alpine
         environment:
@@ -27,17 +27,23 @@ services:
             - POSTGRES_PASSWORD=linkblocks
         volumes:
             - db:/var/lib/postgresql/data
+        command: |
+            -c shared_buffers=16MB 
+            -c work_mem=1MB 
+            -c max_connections=10 
+            -c maintenance_work_mem=4MB 
+            -c effective_cache_size=32MB
+        deploy:
+            resources:
+                limits:
+                    cpus: "0.1"
+                    memory: 64MB
+
         healthcheck:
             test: ["CMD", "pg_isready", "-U", "linkblocks"]
             interval: 60s
             start_period: 30s
         restart: always
-
-        deploy:
-            resources:
-                limits:
-                    cpus: "0.1"
-                    memory: 50MB
 volumes:
     db:
         # Name is from quadlet times
