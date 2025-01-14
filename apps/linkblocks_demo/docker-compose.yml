@@ -19,6 +19,7 @@ services:
                 limits:
                     cpus: "0.1"
                     memory: 64MB
+        restart: unless-stopped
     db:
         image: docker.io/library/postgres:17.2-alpine
         environment:
@@ -43,7 +44,7 @@ services:
             test: ["CMD", "pg_isready", "-U", "linkblocks"]
             interval: 60s
             start_period: 30s
-        restart: always
+        restart: unless-stopped
 volumes:
     db:
         # Name is from quadlet times
