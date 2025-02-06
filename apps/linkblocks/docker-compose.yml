@@ -13,13 +13,13 @@ services:
             - DATABASE_URL=postgres://linkblocks:linkblocks@db/linkblocks
             - BASE_URL=https://lb.zwielich.tech
             - RUST_LOG=linkblocks=debug,tower_http=debug,tower_http::trace::on_request=info,axum::rejection=trace,sqlx=debug
+        restart: always
 
         deploy:
             resources:
                 limits:
                     cpus: "0.5"
                     memory: 64MB
-        restart: unless-stopped
     db:
         image: docker.io/library/postgres:17.2-alpine
         environment:
@@ -44,7 +44,7 @@ services:
             test: ["CMD", "pg_isready", "-U", "linkblocks"]
             interval: 60s
             start_period: 30s
-        restart: unless-stopped
+        restart: always
 
 volumes:
     db:
