@@ -1,6 +1,6 @@
 services:
     hedgedoc:
-        image: quay.io/hedgedoc/hedgedoc:1.10.1
+        image: quay.io/hedgedoc/hedgedoc:1.10.2
         networks:
             - caddy_proxy
             - default
